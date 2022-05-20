@@ -35,6 +35,22 @@ class Struct:
         """
         self.blocks = blocks
 
+    def size(self):
+        """
+        建造物のサイズを計測する
+        :return x_size, y_size, z_size: x,y,zをれぞれの建造物のサイズ
+        """
+        x = [block[0] for block in self.blocks]
+        y = [block[1] for block in self.blocks]
+        z = [block[2] for block in self.blocks]
+
+        x_size = max(x) - min(x) + 1
+        y_size = max(y) - min(y) + 1
+        z_size = max(z) - min(z) + 1
+
+        return x_size, y_size, z_size
+
+
     def struct_building(self, x, y, z):
         """
         csvファイルから建造物の構築をする
